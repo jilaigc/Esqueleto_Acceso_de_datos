@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<catalogo_formacion>
+
+    <informacion_adicional>
+        <organismo>Ministerio de Educación</organismo>
+        <fecha_generacion>2026-11-01</fecha_generacion>
+        <version>1.0</version>
+        <descripcion>
+            Catálogo informativo de enseñanzas de Formación Profesional.
+        </descripcion>
+
+        <ciclos_formativos>
+
+            <!-- FAMILIA ADG -->
+
+            <ciclo cod_cf="ADGB01">
+                <fecha_actualizacion>2026-01-15</fecha_actualizacion>
+                <observaciones>Registro de administración.</observaciones>
+                <nomb_corto>Servicios Administrativos</nomb_corto>
+                <nombrelargo>Título Profesional Básico en Servicios Administrativos</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>ADG</codigo_familia>
+                <codigo_tipoestudio>CFBA</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="ADGM01">
+                <fecha_actualizacion>2026-02-10</fecha_actualizacion>
+                <observaciones>Formación de grado medio.</observaciones>
+                <nomb_corto>Gestión Administrativa</nomb_corto>
+                <nombrelargo>Técnico en Gestión Administrativa</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>ADG</codigo_familia>
+                <codigo_tipoestudio>CFGM</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="ADGS01">
+                <fecha_actualizacion>2026-02-15</fecha_actualizacion>
+                <observaciones>Estudios superiores de administración.</observaciones>
+                <nomb_corto>Administración y Finanzas</nomb_corto>
+                <nombrelargo>Técnico Superior en Administración y Finanzas</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>ADG</codigo_familia>
+                <codigo_tipoestudio>CFGS</codigo_tipoestudio>
+            </ciclo>
+
+
+            <!-- FAMILIA IFC -->
+
+            <ciclo cod_cf="IFCB01">
+                <fecha_actualizacion>2026-01-20</fecha_actualizacion>
+                <observaciones>Formación inicial en informática.</observaciones>
+                <nomb_corto>Informática y Comunicaciones</nomb_corto>
+                <nombrelargo>Título Profesional Básico en Informática y Comunicaciones</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>IFE</codigo_familia>
+                <codigo_tipoestudio>CFGB</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="IFCM01">
+                <fecha_actualizacion>2026-01-25</fecha_actualizacion>
+                <observaciones>Redes y sistemas informáticos.</observaciones>
+                <nomb_corto>Sistemas Microinformáticos y Redes</nomb_corto>
+                <nombrelargo>Técnico en Sistemas Microinformáticos y Redes</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>IFC</codigo_familia>
+                <codigo_tipoestudio>CFGM</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="IFCS02">
+                <fecha_actualizacion>2026-02-01</fecha_actualizacion>
+                <observaciones>Programación de aplicaciones multiplataforma.</observaciones>
+                <nomb_corto>Desarrollo de Aplicaciones Multiplataforma</nomb_corto>
+                <nombrelargo>Técnico Superior en Desarrollo de Aplicaciones Multiplataforma</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>IFC</codigo_familia>
+                <codigo_tipoestudio>CFGS</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="IFCS03">
+                <fecha_actualizacion>2026-02-05</fecha_actualizacion>
+                <observaciones>Desarrollo de aplicaciones web.</observaciones>
+                <nomb_corto>Desarrollo de Aplicaciones Web</nomb_corto>
+                <nombrelargo>Técnico Superior en Desarrollo de Aplicaciones Web</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>IFC</codigo_familia>
+                <codigo_tipoestudio>CFGS</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="IFCES03">
+                <fecha_actualizacion>2026-03-01</fecha_actualizacion>
+                <observaciones>Especialización tecnológica.</observaciones>
+                <nomb_corto>Inteligencia Artificial y Big Data</nomb_corto>
+                <nombrelargo>Curso de Especialización en Inteligencia Artificial y Big Data</nombrelargo>
+                <num_horas_duracion>600</num_horas_duracion>
+                <codigo_familia>IFC</codigo_familia>
+                <codigo_tipoestudio>CFE</codigo_tipoestudio>
+            </ciclo>
+
+
+            <!-- FAMILIA TMV -->
+
+            <ciclo cod_cf="TMVB01">
+                <fecha_actualizacion>2026-01-18</fecha_actualizacion>
+                <observaciones>Formación básica en mantenimiento.</observaciones>
+                <nomb_corto>Mantenimiento de Vehículos</nomb_corto>
+                <nombrelargo>Título Profesional Básico en Mantenimiento de Vehículos</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>TMV</codigo_familia>
+                <codigo_tipoestudio>CFGB</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="TMVM01">
+                <fecha_actualizacion>2026-02-12</fecha_actualizacion>
+                <observaciones>Especialidad en electromecánica.</observaciones>
+                <nomb_corto>Electromecánica de Vehículos Automóviles</nomb_corto>
+                <nombrelargo>Técnico en Electromecánica de Vehículos Automóviles</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>TMV</codigo_familia>
+                <codigo_tipoestudio>CFGM</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="TMVS01">
+                <fecha_actualizacion>2026-02-20</fecha_actualizacion>
+                <observaciones>Formación superior en automoción.</observaciones>
+                <nomb_corto>Automoción</nomb_corto>
+                <nombrelargo>Técnico Superior en Automoción</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>TMV</codigo_familia>
+                <codigo_tipoestudio>CFGS</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="TMVES02">
+                <fecha_actualizacion>2026-03-05</fecha_actualizacion>
+                <observaciones>Especialización en aeronaves no tripuladas.</observaciones>
+                <nomb_corto>Inspección Técnica y Peritación</nomb_corto>
+                <nombrelargo>Curso de Especialización en Aeronaves pilotadas de forma remota-Drones</nombrelargo>
+                <num_horas_duracion>600</num_horas_duracion>
+                <codigo_familia>TMV</codigo_familia>
+                <codigo_tipoestudio>CE</codigo_tipoestudio>
+            </ciclo>
+
+
+            <!-- FAMILIA SAN -->
+
+            <ciclo cod_cf="SANM01">
+                <fecha_actualizacion>2026-02-08</fecha_actualizacion>
+                <observaciones>Formación sanitaria de grado medio.</observaciones>
+                <nomb_corto>Farmacia y Parafarmacia</nomb_corto>
+                <nombrelargo>Técnico en Farmacia y Parafarmacia</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>SAN</codigo_familia>
+                <codigo_tipoestudio>CFME</codigo_tipoestudio>
+            </ciclo>
+
+            <ciclo cod_cf="SANS01">
+                <fecha_actualizacion>2026-02-18</fecha_actualizacion>
+                <observaciones>Formación sanitaria de grado superior.</observaciones>
+                <nomb_corto>Laboratorio Clínico y Biomédico</nomb_corto>
+                <nombrelargo>Técnico Superior en Laboratorio Clínico y Biomédico</nombrelargo>
+                <num_horas_duracion>2000</num_horas_duracion>
+                <codigo_familia>SAN</codigo_familia>
+                <codigo_tipoestudio>CFGS</codigo_tipoestudio>
+            </ciclo>
+
+        </ciclos_formativos>
+
+    </informacion_adicional>
+
+</catalogo_formacion>
