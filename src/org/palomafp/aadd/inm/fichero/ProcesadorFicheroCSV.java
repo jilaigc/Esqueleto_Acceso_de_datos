@@ -12,7 +12,7 @@ import org.palomafp.aadd.inm.service.FamiliaProfesionalService;
 
 /**
  *
- * ProcesadorFicheroCSV: Clase que realiza ....
+ * ProcesadorFicheroCSV: Clase que realiza el procesamiento de un fichero CSV para obtener información de familias profesionales y realizar la inserción o actualización en la base de datos.
  * 
  * @author Isidoro Nevares Martín - IES Virgen de la Paloma
  * @date 6 nov 2026

@@ -17,7 +17,7 @@ import org.w3c.dom.NodeList;
 
 /**
  *
- * ProcesadorFicheroXL: Clase que realiza ....
+ * ProcesadorFicheroXL: Clase que realiza el procesamiento de un fichero XML para obtener información de ciclos formativos y realizar la inserción en la base de datos.
  * @author Isidoro Nevares Martín - IES Virgen de la Paloma
  * @date 6 nov 2026
  * 
