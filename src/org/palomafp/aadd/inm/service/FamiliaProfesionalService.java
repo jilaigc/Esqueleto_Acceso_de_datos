@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.palomafp.aadd.inm.dao.IFamiliaProfesionalDAO;
 import org.palomafp.aadd.inm.dao.impl.FamiliaProfesionalDaoJDBC;
 import org.palomafp.aadd.inm.excepcion.FormacionException;
-import org.palomafp.aadd.inm.gestores.GestorConexionesBBDD;
+import org.palomafp.aadd.inm.gestor.GestorConexionesBBDD;
 import org.palomafp.aadd.inm.model.FamiliaProfesional;
 
 /**

@@ -1,4 +1,4 @@
-package org.palomafp.aadd.inm.gestores;
+package org.palomafp.aadd.inm.gestor;
 
 import java.io.IOException;
 import java.io.InputStream;

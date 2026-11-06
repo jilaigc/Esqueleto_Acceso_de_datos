@@ -10,7 +10,7 @@ import org.palomafp.aadd.inm.dao.impl.CicloFormativoDaoJDBC;
 import org.palomafp.aadd.inm.dao.impl.FamiliaProfesionalDaoJDBC;
 import org.palomafp.aadd.inm.dao.impl.TipoFormacionDaoJDBC;
 import org.palomafp.aadd.inm.excepcion.FormacionException;
-import org.palomafp.aadd.inm.gestores.GestorConexionesBBDD;
+import org.palomafp.aadd.inm.gestor.GestorConexionesBBDD;
 import org.palomafp.aadd.inm.model.CicloFormativo;
 
 /**
