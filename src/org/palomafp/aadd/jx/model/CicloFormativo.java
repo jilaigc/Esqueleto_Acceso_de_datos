@@ -1,6 +1,7 @@
 package org.palomafp.aadd.jx.model;
 
 public class CicloFormativo {
+	
 	private String codigo;
 	private String nombreCorto;
 	private String nombreLargo;

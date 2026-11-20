@@ -25,7 +25,6 @@ public class ProcesadorFicheroXML {
 
 		for (JsonNode elementoCiclo : listaCiclos) {
 
-			// Tratamiento de atributo y contenido de etiquetas con JsonNode
 			String codCicloFormativo = elementoCiclo.path("cod_cf").asText();
 			String nombreCortoCicloFormativo = elementoCiclo.path("nomb_corto").asText();
 			String nombreLargoCicloFormativo = elementoCiclo.path("nombrelargo").asText();

@@ -2,6 +2,7 @@ package org.palomafp.aadd.jx.model;
 
 public class TipoFormacion {
 	private String codigo;
+	
 	private String nombreCorto;
 	private String nombreLargo;
 	public String getCodigo() {
