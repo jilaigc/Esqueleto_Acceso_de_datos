@@ -1,0 +1,26 @@
+[
+  {
+    "id_registro": 1,
+    "fecha_carga": "2026-01-15",
+    "cod_tipo_fam": "ADG",
+    "nombre_tf": "Administración y Gestión"
+  },
+  {
+    "id_registro": 2,
+    "fecha_carga": "2026-01-15",
+    "cod_tipo_fam": "IFC",
+    "nombre_tf": "Informática y Comunicaciones"
+  },
+  {
+    "id_registro": 3,
+    "fecha_carga": "2026-01-15",
+    "cod_tipo_fam": "TMV",
+    "nombre_tf": "Transporte y Mantenimiento de Vehículos"
+  },
+  {
+    "id_registro": 4,
+    "fecha_carga": "2026-01-15",
+    "cod_tipo_fam": "SAN",
+    "nombre_tf": "Sanidad"
+  }
+]
