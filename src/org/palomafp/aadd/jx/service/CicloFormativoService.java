@@ -10,32 +10,28 @@ import org.palomafp.aadd.jx.dao.impl.CicloFormativoDaoJDBC;
 import org.palomafp.aadd.jx.dao.impl.FamiliaProfesionalDaoJDBC;
 import org.palomafp.aadd.jx.dao.impl.TipoFormacionDaoJDBC;
 import org.palomafp.aadd.jx.excepcion.FormacionException;
-import org.palomafp.aadd.jx.gestor.GestorConexionBBDD;
+import org.palomafp.aadd.jx.gestor.GestorConexionesBBDD;
 import org.palomafp.aadd.jx.model.CicloFormativo;
 
 public class CicloFormativoService {
+	public void insertarCicloFormativo(CicloFormativo cicloFormativo) throws FormacionException {
 
-	public void insertarCiclo(CicloFormativo ciclo) throws FormacionException {
-		try (Connection conexion = GestorConexionBBDD.obtenerConexion()) {
-			IFamiliaProfesionalDAO familiaDao = new FamiliaProfesionalDaoJDBC(conexion);
-			ITipoFormacionDAO tipoDao = new TipoFormacionDaoJDBC(conexion);
-			ICicloFormativoDAO cicloDao = new CicloFormativoDaoJDBC(conexion);
+		try (Connection conexion = GestorConexionesBBDD.obtenerConexion();) {
+			IFamiliaProfesionalDAO iFamiliaProfesionalDAO = new FamiliaProfesionalDaoJDBC(conexion);
+			boolean existeFamiliaProfesional = false;
+			existeFamiliaProfesional = iFamiliaProfesionalDAO.existeFamiliaProfesionalPorClave(cicloFormativo.getFamiliaProfesional().getCodigo());
 
-			// Validamos integridad referencial antes de insertar
-			String codFamilia = ciclo.getFamiliaProfesional().getCodigoFamilia();
-			if (!familiaDao.existeFamiliaProfesionalPorClave(codFamilia)) {
-				throw new FormacionException("No existe la familia profesional con código: " + codFamilia);
+			boolean existeTipoFormacion= false;
+			ITipoFormacionDAO iTipoFormacionDAO= new TipoFormacionDaoJDBC(conexion);
+			existeTipoFormacion= iTipoFormacionDAO.existeTipoFormacionPorClave(cicloFormativo.getTipoFormacion().getCodigo());
+			
+			ICicloFormativoDAO iCicloFormativoDAO = new CicloFormativoDaoJDBC(conexion);
+			if(existeFamiliaProfesional && existeTipoFormacion) {
+				iCicloFormativoDAO.insertarCicloFormativo(cicloFormativo);
 			}
-
-			String codTipo = ciclo.getTipoFormacion().getCodigo();
-			if (!tipoDao.existeTipoFormacionPorClave(codTipo)) {
-				throw new FormacionException("No existe el tipo de formación con código: " + codTipo);
-			}
-
-			cicloDao.insertarCicloFormativo(ciclo);
-
 		} catch (SQLException e) {
-			throw new FormacionException("Error de conexión al insertar el ciclo formativo.", e);
+			throw new FormacionException("Error al obtener la conexión", e);
 		}
 	}
+
 }

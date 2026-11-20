@@ -5,4 +5,5 @@ import org.palomafp.aadd.jx.model.CicloFormativo;
 
 public interface ICicloFormativoDAO {
 	void insertarCicloFormativo(CicloFormativo cicloFormativo) throws FormacionException;
+
 }

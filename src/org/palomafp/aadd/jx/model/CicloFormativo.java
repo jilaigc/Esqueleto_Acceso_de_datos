@@ -1,69 +1,54 @@
 package org.palomafp.aadd.jx.model;
 
 public class CicloFormativo {
-	
-	private String codigoFormacion;
+	private String codigo;
 	private String nombreCorto;
 	private String nombreLargo;
-	private int horasDuracion;
+	private int numeroHorasDuracion;
 	private FamiliaProfesional familiaProfesional;
 	private TipoFormacion tipoFormacion;
 	
-	public CicloFormativo(){
+	public String getCodigo() {
+		return codigo;
 	}
-	
-	public CicloFormativo(String codigoFormacion, String nombreCorto, String nombreLargo, int horasDuracion,
-			FamiliaProfesional familiaProfesional, TipoFormacion tipoFormacion) {
-		this.codigoFormacion = codigoFormacion;
-		this.nombreCorto = nombreCorto;
-		this.nombreLargo = nombreLargo;
-		this.horasDuracion = horasDuracion;
-		this.familiaProfesional = familiaProfesional;
-		this.tipoFormacion = tipoFormacion;
-	}
-
-	public String getCodigoFormacion() {
-		return codigoFormacion;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 	public String getNombreCorto() {
 		return nombreCorto;
 	}
-	public String getNombreLargo() {
-		return nombreLargo;
-	}
-	public int getHorasDuracion() {
-		return horasDuracion;
-	}
-	public FamiliaProfesional getFamiliaProfesional() {
-		return familiaProfesional;
-	}
-	public TipoFormacion getTipoFormacion() {
-		return tipoFormacion;
-	}
-
-	public void setCodigoFormacion(String codigoFormacion) {
-		this.codigoFormacion = codigoFormacion;
-	}
 	public void setNombreCorto(String nombreCorto) {
 		this.nombreCorto = nombreCorto;
+	}
+	public String getNombreLargo() {
+		return nombreLargo;
 	}
 	public void setNombreLargo(String nombreLargo) {
 		this.nombreLargo = nombreLargo;
 	}
-	public void setHorasDuracion(int horasDuracion) {
-		this.horasDuracion = horasDuracion;
+	public int getNumeroHorasDuracion() {
+		return numeroHorasDuracion;
+	}
+	public void setNumeroHorasDuracion(int numeroHorasDuracion) {
+		this.numeroHorasDuracion = numeroHorasDuracion;
+	}
+	public FamiliaProfesional getFamiliaProfesional() {
+		return familiaProfesional;
 	}
 	public void setFamiliaProfesional(FamiliaProfesional familiaProfesional) {
 		this.familiaProfesional = familiaProfesional;
 	}
+	public TipoFormacion getTipoFormacion() {
+		return tipoFormacion;
+	}
 	public void setTipoFormacion(TipoFormacion tipoFormacion) {
 		this.tipoFormacion = tipoFormacion;
 	}
-
 	@Override
 	public String toString() {
-		return "CicloFormativo [codigoFormacion=" + codigoFormacion + ", nombreCorto=" + nombreCorto + ", nombreLargo="
-				+ nombreLargo + ", horasDuracion=" + horasDuracion + ", familiaProfesional=" + familiaProfesional
+		return "CicloFormativo [codigo=" + codigo + ", nombreCorto=" + nombreCorto + ", nombreLargo=" + nombreLargo
+				+ ", numeroHorasDuracion=" + numeroHorasDuracion + ", familiaProfesional=" + familiaProfesional
 				+ ", tipoFormacion=" + tipoFormacion + "]";
 	}
+	
 }

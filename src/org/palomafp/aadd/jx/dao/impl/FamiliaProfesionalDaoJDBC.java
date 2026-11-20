@@ -10,7 +10,6 @@ import org.palomafp.aadd.jx.excepcion.FormacionException;
 import org.palomafp.aadd.jx.model.FamiliaProfesional;
 
 public class FamiliaProfesionalDaoJDBC implements IFamiliaProfesionalDAO {
-
 	private final Connection conexion;
 
 	public FamiliaProfesionalDaoJDBC(Connection conexion) {
@@ -18,51 +17,64 @@ public class FamiliaProfesionalDaoJDBC implements IFamiliaProfesionalDAO {
 	}
 	
 	@Override
-	public boolean existeFamiliaProfesionalPorCod(String codFamilia) throws FormacionException {
-		boolean existe = false;
-		String sentenciaSQL = "SELECT EXISTS(SELECT 1 FROM T_FAMILIA_PROFESIONAL WHERE codigo = ?) AS existe_familia";
-
-		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL)) {
-			sentenciaPreparada.setString(1, codFamilia);
-			try (ResultSet resultados = sentenciaPreparada.executeQuery()) {
-				if (resultados.next()) {
-					existe = resultados.getBoolean("existe_familia");
-				}
-			}
-		} catch (SQLException e) {
-			throw new FormacionException("Error al comprobar si existe la familia " + codFamilia + ".", e);
-		}
-		return existe;
-	}
-
-	@Override
 	public boolean existeFamiliaProfesionalPorClave(String codFamiliaProfesional) throws FormacionException {
-		return existeFamiliaProfesionalPorCod(codFamiliaProfesional);
+		boolean existeFamiliaProfesional = false;
+
+		String sentenciaSQL = """
+				SELECT EXISTS(
+					SELECT 1
+					FROM T_FAMILIA_PROFESIONAL
+					WHERE codigo = ?
+					) AS existe_fp
+				""";
+
+		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL);) {
+			sentenciaPreparada.setString(1, codFamiliaProfesional);
+			ResultSet resultados = sentenciaPreparada.executeQuery();
+			if (resultados.next()) {
+				existeFamiliaProfesional = resultados.getBoolean("existe_fp");
+			}
+
+		} catch (SQLException e) {
+			throw new FormacionException("Error al validar si existe una familia profesional por código.", e);
+		}
+
+		return existeFamiliaProfesional;
 	}
 
 	@Override
-	public void insertarFamiliaProfesional(FamiliaProfesional familia) throws FormacionException {
-		String sentenciaSQL = "INSERT INTO T_FAMILIA_PROFESIONAL (codigo, nombre) VALUES (?, ?)";
+	public void insertarFamiliaProfesional(FamiliaProfesional familiaProfesional) throws FormacionException {
+		String sentenciaSQL = """
+				INSERT INTO T_FAMILIA_PROFESIONAL (codigo, nombre)
+				VALUES (?, ?)
+				""";
 
-		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL)) {
-			sentenciaPreparada.setString(1, familia.getCodigoFamilia());
-			sentenciaPreparada.setString(2, familia.getNombre());
+		
+		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL);) {
+			sentenciaPreparada.setString(1, familiaProfesional.getCodigo());
+			sentenciaPreparada.setString(2, familiaProfesional.getNombre());
 			sentenciaPreparada.executeUpdate();
 		} catch (SQLException e) {
-			throw new FormacionException("Error al insertar la familia " + familia.getCodigoFamilia() + ".", e);
+			throw new FormacionException("Error al insertar una familia profesional.", e);
 		}
+
 	}
 
 	@Override
-	public void actualizarFamiliaProfesional(FamiliaProfesional familia) throws FormacionException {
-		String sentenciaSQL = "UPDATE T_FAMILIA_PROFESIONAL SET nombre = ? WHERE codigo = ?";
+	public void actualizarFamiliaProfesional(FamiliaProfesional familiaProfesional) throws FormacionException {
+		String sentenciaSQL = """
+				UPDATE T_FAMILIA_PROFESIONAL
+				SET nombre = ?
+				WHERE codigo= ?
+				""";
 
-		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL)) {
-			sentenciaPreparada.setString(1, familia.getNombre());
-			sentenciaPreparada.setString(2, familia.getCodigoFamilia());
+		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL);) {
+			sentenciaPreparada.setString(1, familiaProfesional.getNombre());
+			sentenciaPreparada.setString(2, familiaProfesional.getCodigo());
 			sentenciaPreparada.executeUpdate();
 		} catch (SQLException e) {
-			throw new FormacionException("Error al actualizar la familia " + familia.getCodigoFamilia() + ".", e);
+			throw new FormacionException("Error al actualizar una familia profesional.", e);
 		}
 	}
+
 }

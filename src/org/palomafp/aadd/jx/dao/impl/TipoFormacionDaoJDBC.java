@@ -9,34 +9,35 @@ import org.palomafp.aadd.jx.dao.ITipoFormacionDAO;
 import org.palomafp.aadd.jx.excepcion.FormacionException;
 
 public class TipoFormacionDaoJDBC implements ITipoFormacionDAO {
-
 	private final Connection conexion;
 
 	public TipoFormacionDaoJDBC(Connection conexion) {
 		this.conexion = conexion;
 	}
-
-	@Override
-	public boolean existeTipoFormacionPorCod(String codTipo) throws FormacionException {
-		boolean existe = false;
-		String sentenciaSQL = "SELECT EXISTS(SELECT 1 FROM T_TIPO_FORMACION WHERE codigo = ?) AS existe_tipo";
-
-		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL)) {
-			sentenciaPreparada.setString(1, codTipo);
-
-			try (ResultSet resultados = sentenciaPreparada.executeQuery()) {
-				if (resultados.next()) {
-					existe = resultados.getBoolean("existe_tipo");
-				}
-			}
-		} catch (SQLException e) {
-			throw new FormacionException("Error al comprobar si existe el tipo de formación " + codTipo + ".", e);
-		}
-		return existe;
-	}
-
 	@Override
 	public boolean existeTipoFormacionPorClave(String codigoTipoFormacion) throws FormacionException {
-		return existeTipoFormacionPorCod(codigoTipoFormacion);
+		boolean existeTipoFormacion = false;
+
+		String sentenciaSQL = """
+				SELECT EXISTS(
+					SELECT 1
+					FROM T_TIPO_FORMACION
+					WHERE codigo = ?
+					) AS existe_tf
+				""";
+//		System.out.println(sentenciaSQL);
+		try (PreparedStatement sentenciaPreparada = conexion.prepareStatement(sentenciaSQL);) {
+			sentenciaPreparada.setString(1, codigoTipoFormacion);
+			ResultSet resultados = sentenciaPreparada.executeQuery();
+			if (resultados.next()) {
+				existeTipoFormacion = resultados.getBoolean("existe_tf");
+			}
+
+		} catch (SQLException e) {
+			throw new FormacionException("Error al validar si existe un tipo de formación por código.", e);
+		}
+
+		return existeTipoFormacion;
 	}
+
 }

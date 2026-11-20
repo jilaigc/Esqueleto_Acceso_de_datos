@@ -6,54 +6,40 @@ import java.sql.SQLException;
 import org.palomafp.aadd.jx.dao.IFamiliaProfesionalDAO;
 import org.palomafp.aadd.jx.dao.impl.FamiliaProfesionalDaoJDBC;
 import org.palomafp.aadd.jx.excepcion.FormacionException;
-import org.palomafp.aadd.jx.gestor.GestorConexionBBDD;
+import org.palomafp.aadd.jx.gestor.GestorConexionesBBDD;
 import org.palomafp.aadd.jx.model.FamiliaProfesional;
 
 public class FamiliaProfesionalService {
-
 	public boolean existeFamiliaProfesionalPorClave(String codFamiliaProfesional) throws FormacionException {
-		boolean existe = false;
+		boolean existeFP = false;
 
-		try (Connection conexion = GestorConexionBBDD.obtenerConexion()) {
-			IFamiliaProfesionalDAO dao = new FamiliaProfesionalDaoJDBC(conexion);
-			existe = dao.existeFamiliaProfesionalPorClave(codFamiliaProfesional);
+		try (Connection conexion = GestorConexionesBBDD.obtenerConexion();) {
+			IFamiliaProfesionalDAO iFamiliaProfesionalDAO = new FamiliaProfesionalDaoJDBC(conexion);
+			existeFP = iFamiliaProfesionalDAO.existeFamiliaProfesionalPorClave(codFamiliaProfesional);
 		} catch (SQLException e) {
-			throw new FormacionException("Error al comprobar la clave de la familia profesional", e);
+			throw new FormacionException("Error al obtener la conexión", e);
 		}
-		return existe;
+		return existeFP;
 	}
-	
-	public void insertarFamiliaProfesional(FamiliaProfesional familia) throws FormacionException {
-		try (Connection conexion = GestorConexionBBDD.obtenerConexion()) {
-			IFamiliaProfesionalDAO dao = new FamiliaProfesionalDaoJDBC(conexion);
 
-			if (dao.existeFamiliaProfesionalPorClave(familia.getCodigoFamilia())) {
-				throw new FormacionException("La Familia " + familia.getCodigoFamilia() + " ya existe.");
-			}
-			dao.insertarFamiliaProfesional(familia);
+	public void insertarFamiliaProfesional(FamiliaProfesional familiaProfesional) throws FormacionException {
+
+		try (Connection conexion = GestorConexionesBBDD.obtenerConexion();) {
+			IFamiliaProfesionalDAO iFamiliaProfesionalDAO = new FamiliaProfesionalDaoJDBC(conexion);
+			iFamiliaProfesionalDAO.insertarFamiliaProfesional(familiaProfesional);
 		} catch (SQLException e) {
-			throw new FormacionException("Error al insertar la familia profesional.", e);
+			throw new FormacionException("Error al obtener la conexión", e);
 		}
 	}
 
-	public void actualizarFamiliaProfesional(FamiliaProfesional familia) throws FormacionException {
-		try (Connection conexion = GestorConexionBBDD.obtenerConexion()) {
-			IFamiliaProfesionalDAO dao = new FamiliaProfesionalDaoJDBC(conexion);
+	public void actualizarFamiliaProfesional(FamiliaProfesional familiaProfesional) throws FormacionException {
 
-			if (!dao.existeFamiliaProfesionalPorClave(familia.getCodigoFamilia())) {
-				throw new FormacionException("La Familia " + familia.getCodigoFamilia() + " no existe.");
-			}
-			dao.actualizarFamiliaProfesional(familia);
+		try (Connection conexion = GestorConexionesBBDD.obtenerConexion();) {
+			IFamiliaProfesionalDAO iFamiliaProfesionalDAO = new FamiliaProfesionalDaoJDBC(conexion);
+			iFamiliaProfesionalDAO.actualizarFamiliaProfesional(familiaProfesional);
 		} catch (SQLException e) {
-			throw new FormacionException("Error al actualizar la familia profesional.", e);
+			throw new FormacionException("Error al obtener la conexión", e);
 		}
 	}
-	
-	public void insertarFamilia(FamiliaProfesional familia) throws FormacionException {
-		insertarFamiliaProfesional(familia);
-	}
-	
-	public void actualizarFamilia(FamiliaProfesional familia) throws FormacionException {
-		actualizarFamiliaProfesional(familia);
-	}
+
 }

@@ -1,27 +1,24 @@
 package org.palomafp.aadd.jx;
 
 import org.palomafp.aadd.jx.excepcion.FormacionException;
-import org.palomafp.aadd.jx.fichero.CicloFormativoProcesadorXml;
-import org.palomafp.aadd.jx.fichero.FamiliaProfesionalProcesadorJson;
-import org.palomafp.aadd.jx.fichero.ProcesadorFicheroCSV;
+import org.palomafp.aadd.jx.fichero.ProcesadorFicheroJSON;
+import org.palomafp.aadd.jx.fichero.ProcesadorFicheroXML;
 
 public class AppPrincipalFormacion {
 
 	public static void main(String[] args) {
 
 		try {
-			ProcesadorFicheroCSV procesadorCSV = new ProcesadorFicheroCSV();
+			ProcesadorFicheroJSON procesadorCSV = new ProcesadorFicheroJSON();
 			procesadorCSV.realizarTratamientoFamiliasProfesionales();
 
-			FamiliaProfesionalProcesadorJson procesadorJson = new FamiliaProfesionalProcesadorJson();
-			procesadorJson.realizarTratamientoFamilias();
-
-			CicloFormativoProcesadorXml procesadorXml = new CicloFormativoProcesadorXml();
-			procesadorXml.realizarTratamientoCiclos();
+			ProcesadorFicheroXML procesadorXML = new ProcesadorFicheroXML();
+			procesadorXML.realizarTratamientoCiclosFormativos();
 
 		} catch (FormacionException e) {
 			System.out.println("Error al realizar el tratamiento de Formación: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
+
 }

@@ -1,36 +1,19 @@
 package org.palomafp.aadd.jx.model;
 
 public class FamiliaProfesional {
-
-	private String codigoFamilia;
+	private String codigo;
 	private String nombre;
-	
-	public FamiliaProfesional() {
-	}
-	
-	public FamiliaProfesional(String codigoFamilia, String nombre) {
-		this.codigoFamilia = codigoFamilia;
-		this.nombre = nombre;
+
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public String getCodigoFamilia() {
-		return codigoFamilia;
-	}
-	
-	public String getCodigo() {
-		return codigoFamilia;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getNombre() {
 		return nombre;
-	}
-
-	public void setCodigoFamilia(String codigoFamilia) {
-		this.codigoFamilia = codigoFamilia;
-	}
-
-	public void setCodigo(String codigoFamilia) {
-		this.codigoFamilia = codigoFamilia;
 	}
 
 	public void setNombre(String nombre) {
@@ -39,6 +22,7 @@ public class FamiliaProfesional {
 
 	@Override
 	public String toString() {
-		return "FamiliaProfesional [codigoFamilia=" + codigoFamilia + ", nombre=" + nombre + "]";
+		return "FamiliaProfesional [codigo=" + codigo + ", nombre=" + nombre + "]";
 	}
+
 }
